@@ -65,7 +65,12 @@ async function init() {
   const { projects, totalDayHours, dayColumnIndex, summary } = await browser.load();
   let dayHours = totalDayHours;
 
-  console.log(table(summary));
+  console.log(table(summary, {
+    columnDefault: { alignment: 'center', paddingLeft: 1, paddingRight: 1 },
+    columns: {
+      0: { alignment: 'left' }
+    }
+  }));
   console.log(`💻 ${projects.length} projects found`);
   console.log(`🕑 ${dayHours} hours have been entered for today`);
 
