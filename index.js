@@ -1,3 +1,5 @@
+#!/usr/local/bin/node
+
 const util = require('util');
 const inquirer = require('inquirer');
 const { table } = require('table');
@@ -48,13 +50,13 @@ async function init() {
       {
         type: 'input',
         name: 'user',
-        message: 'Username',
+        message: 'Username:',
         prefix: '👤',
       },
       {
         type: 'password',
         name: 'pass',
-        message: 'Password',
+        message: 'Password:',
         prefix: '🔑',
       }
     ]);
