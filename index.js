@@ -1,13 +1,14 @@
 #!/usr/local/bin/node
 
-const util = require('util');
 const inquirer = require('inquirer');
 const { table } = require('table');
 const Browser = require('./lib/Browser');
 
+let browser;
+
 async function handleExit() {
   await browser.close();
-  //process.exit();
+  process.exit();
 }
 
 function buildPrompt(projects) {
@@ -39,7 +40,7 @@ function buildPrompt(projects) {
 }
 
 async function init() {
-  const browser = new Browser();
+  browser = new Browser();
 
   console.log(`📅 ${new Date().toDateString()}`);
 
@@ -68,7 +69,9 @@ async function init() {
   let dayHours = totalDayHours;
 
   console.log(table(summary, {
-    columnDefault: { alignment: 'center', paddingLeft: 1, paddingRight: 1 },
+    columnDefault: {
+      alignment: 'center'
+    },
     columns: {
       0: { alignment: 'left' }
     }
@@ -77,7 +80,7 @@ async function init() {
   console.log(`🕑 ${dayHours} hours have been entered for today`);
 
   while (dayHours < 8) {
-    const { taskId, hours, confirm } = await inquirer.prompt(buildPrompt(projects));
+    const { taskId, hours } = await inquirer.prompt(buildPrompt(projects));
     dayHours += hours;
 
     console.log(`Total day hours: ${dayHours}`);
