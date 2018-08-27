@@ -7,7 +7,9 @@ const Browser = require('./lib/Browser');
 let browser;
 
 async function handleExit() {
-  await browser.close();
+  if (browser) {
+    await browser.close();
+  }
   process.exit();
 }
 
@@ -108,9 +110,10 @@ async function init() {
   await browser.close();
 }
 
+process.on('SIGINT', handleExit);
+process.on('SIGTERM', handleExit);
+
 (async () => {
-  process.on('SIGINT', handleExit);
-  process.on('SIGTERM', handleExit);
   try {
     await init();
   } catch (e) {
