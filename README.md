@@ -13,7 +13,7 @@ If less than 8 hours have been entered for the current day, it keeps prompting t
 
 At the end, the user can save or send the sheet for approve.
 
-Ctrl+C/Cmd+c cancels the current operation.
+Ctrl+C/Cmd+C cancels the current operation.
 
 ## Requirements
 - Node.js
