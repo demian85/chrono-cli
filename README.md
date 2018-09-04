@@ -18,7 +18,7 @@ At the end, the user can save or send the sheet for approve.
 Ctrl+C/Cmd+C cancels the current operation.
 
 ## Requirements
-- Node.js
+- Node.js v10.x
 
 ## Installation
 
