@@ -27,4 +27,7 @@ Ctrl+C/Cmd+C cancels the current operation.
 - `npm i && npm link`
 
 ## Usage
-Run `chrono-cli` and follow the instructions
+Run `chrono-cli` and follow the instructions.
+
+## Contributing
+File an issue :)
